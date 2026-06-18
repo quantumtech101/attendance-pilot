@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Attendance Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="topbar">
+      <h2>Attendance Dashboard</h2>
+      <div class="top-actions">
+        <a href="scanner.html">Scanner</a>
+        <a href="students.html">Students</a>
+        <button onclick="refreshAll()">Refresh</button>
+        <button onclick="logout()">Logout</button>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:20px; padding:18px 24px;">
+      <div class="form-grid" style="grid-template-columns: 1fr auto; gap: 12px; align-items: stretch;">
+        <input id="dashboardSearch" placeholder="Search by student name or ID" onkeydown="if(event.key==='Enter') searchDashboard()">
+        <button onclick="searchDashboard()">Search</button>
+      </div>
+    </div>
+
+    <div class="page-card">
+      <h3 class="section-title">Total Hours per Student</h3>
+      <p class="subtitle">Review attendance totals and monitor student time in one clean view.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Student ID</th><th>Name</th><th>Total Hours</th></tr></thead>
+          <tbody id="hoursBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="page-card">
+      <h3 class="section-title">Raw Logs</h3>
+      <p class="subtitle">All attendance events with timestamps and duration details.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Student ID</th><th>Name</th><th>Type</th><th>Time</th><th>Duration (min)</th></tr></thead>
+          <tbody id="logsBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="auth.js"></script>
+  <script type="module" src="dashboard.js"></script>
+</body>
+</html>

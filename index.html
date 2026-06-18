@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="card center" style="max-width:400px; padding:32px;">
+      <h2>Admin Login</h2>
+      <p style="color:#475569; margin: 8px 0 18px;">Sign in to manage attendance, students, and scanning.</p>
+      <input id="email" type="email" placeholder="Email">
+      <input id="password" type="password" placeholder="Password">
+      <button onclick="login()">Login</button>
+      <p id="msg" style="margin-top:14px;"></p>
+    </div>
+  </div>
+
+  <script type="module">
+    import { supabase } from "./supabase.js";
+    const { data } = await supabase.auth.getSession();
+    if (data.session) window.location.href = "dashboard.html";
+  </script>
+  <script type="module" src="auth.js"></script>
+</body>
+</html>

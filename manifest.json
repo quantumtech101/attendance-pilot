@@ -1,0 +1,8 @@
+{
+  "name": "Attendance Scanner",
+  "short_name": "Attendance",
+  "start_url": "scanner.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb"
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Students</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="topbar">
+      <h2>Students</h2>
+      <div class="top-actions">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="scanner.html">Scanner</a>
+        <button onclick="logout()">Logout</button>
+      </div>
+    </div>
+
+    <div class="card" style="max-width: 720px; margin-bottom: 20px;">
+      <h3 class="section-title">Add Student</h3>
+      <p class="subtitle">Create a student record for attendance tracking and QR generation.</p>
+      <div class="form-grid form-grid-2">
+        <input id="newId" placeholder="Student ID (e.g. 2023-0001)">
+        <input id="newName" placeholder="Full Name">
+        <input id="newCourse" placeholder="Course (optional)">
+        <input id="newYear" placeholder="Year Level (optional)">
+        <input id="newSection" placeholder="Section (optional)">
+      </div>
+      <button onclick="addStudent()">Add Student</button>
+      <p id="addMsg"></p>
+    </div>
+
+    <div class="card" style="max-width: 720px; margin-bottom: 20px; padding: 20px 24px;">
+      <div class="form-grid" style="grid-template-columns: 1fr auto; gap: 12px; align-items: end;">
+        <input id="searchInput" placeholder="Search by name or ID">
+        <div style="display:flex; gap:10px;">
+          <button onclick="searchStudents()" style="min-width: 88px;">Search</button>
+          <button onclick="resetSearch()" type="button" style="min-width: 88px; background:#64748b;">Clear</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>ID</th><th>Name</th><th>Course</th><th>Year</th><th>Section</th><th>QR</th><th></th></tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script type="module" src="students.js"></script>
+</body>
+</html>
